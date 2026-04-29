@@ -1,5 +1,6 @@
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import ScrollToTop from "@/components/scroll-to-top";
 import HeroSection from "@/components/sections/hero-section";
 import ServicesSection from "@/components/sections/services-section";
 import ShowcaseSection from "@/components/sections/showcase-section";
@@ -22,6 +23,7 @@ export default function Home() {
       <AboutSection />
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </main>
   );
 }

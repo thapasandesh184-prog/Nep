@@ -57,6 +57,38 @@ body {
   background: #E8D5A3;
 }
 
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 1px solid #C9A96E;
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 /* Luxury easing utility */
 @layer utilities {
   .ease-luxury {
@@ -99,5 +131,35 @@ body {
       #C9A96E,
       transparent
     );
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-marquee {
+    animation: none !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .inner-glow-hover:hover {
+    box-shadow: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --grid-opacity: 0.05;
   }
 }
