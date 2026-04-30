@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-outfit",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
@@ -18,21 +18,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nepovoxel.com"),
-  title: "Nepovoxel — Fly Through the AI Dimension",
+  title: "Nepovoxel — AI Creative Studio",
   description:
-    "You do not scroll a website. You fly through a living AI dimension. Nepovoxel is an AI creative studio whose website IS an AI-generated universe.",
+    "AI-generated product photography, UGC videos, ad creatives, and world-class web development. Studio-quality visuals at a fraction of the cost.",
   keywords: [
     "AI creative studio",
     "AI product photography",
     "AI UGC video",
-    "3D web experience",
-    "award winning website",
-    "immersive web",
+    "AI ad creatives",
+    "web development",
+    "Next.js",
+    "brand visuals",
   ],
   robots: "index, follow",
   openGraph: {
-    title: "Nepovoxel — Fly Through the AI Dimension",
-    description: "A navigable 3D dimension that generates itself around you.",
+    title: "Nepovoxel — AI Creative Studio",
+    description: "Studio-quality AI visuals and web development for ambitious brands.",
     type: "website",
     locale: "en_US",
     siteName: "Nepovoxel",
@@ -47,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-[#08070A] text-[#F2EFF9] font-sans`}
+        className={`${outfit.variable} ${inter.variable} antialiased bg-white text-[#111111] font-sans`}
       >
         {children}
       </body>

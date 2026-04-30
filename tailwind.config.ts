@@ -9,17 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: "#08070A",
+        void: "#FAFAFA",
+        "void-deep": "#FFFFFF",
         violet: "#7B5EA7",
         "violet-light": "#A78BFA",
         teal: "#34D399",
         gold: "#F0C040",
-        text: "#F2EFF9",
-        muted: "#C4BADA",
+        text: "#111111",
+        muted: "#666666",
+        // Legacy aliases — sections use these
+        obsidian: "#FAFAFA",
+        ivory: "#111111",
+        "royal-gold": "#F0C040",
+        mahogany: "#F5F5F5",
+        champagne: "#F5E6C8",
       },
       fontFamily: {
-        display: ["var(--font-space)", "system-ui", "sans-serif"],
+        display: ["var(--font-outfit)", "system-ui", "sans-serif"],
         body: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         luxury: "0.2em",

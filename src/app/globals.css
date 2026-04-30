@@ -3,52 +3,76 @@
 @tailwind utilities;
 
 :root {
-  --void: #08070A;
+  --bg: #FAFAFA;
+  --bg-pure: #FFFFFF;
+  --text: #111111;
+  --text-muted: #666666;
+  --text-subtle: #999999;
+  --border: #E5E5E5;
+  --border-light: #F0F0F0;
   --violet: #7B5EA7;
   --violet-light: #A78BFA;
   --teal: #34D399;
   --gold: #F0C040;
-  --text: #F2EFF9;
-  --muted: #C4BADA;
 }
 
 body {
   color: var(--text);
-  background-color: var(--void);
+  background-color: var(--bg);
   overflow-x: hidden;
   font-family: var(--font-inter), system-ui, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-space), system-ui, sans-serif;
+  font-family: var(--font-outfit), system-ui, sans-serif;
 }
 
 ::selection {
-  background-color: rgba(123, 94, 167, 0.4);
-  color: #F2EFF9;
+  background-color: rgba(123, 94, 167, 0.2);
+  color: #111111;
 }
 
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-track { background: #08070A; }
-::-webkit-scrollbar-thumb { background: #7B5EA7; border-radius: 2px; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #f0f0f0; }
+::-webkit-scrollbar-thumb { background: #c4bada; border-radius: 2px; }
 
 *:focus-visible {
-  outline: 1px solid #7B5EA7;
+  outline: 1.5px solid #7B5EA7;
   outline-offset: 2px;
 }
 
-html { scroll-behavior: auto; }
+html { scroll-behavior: smooth; }
 
 @layer utilities {
   .ease-luxury {
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
   .font-display {
-    font-family: var(--font-space), system-ui, sans-serif;
+    font-family: var(--font-outfit), system-ui, sans-serif;
   }
   .font-body {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Subtle dot pattern for light backgrounds */
+.dot-pattern {
+  background-image: radial-gradient(circle, #e5e5e5 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animated gradient orbs for light bg */
+@keyframes meshShift {
+  0%, 100% { opacity: 0.5; transform: scale(1) translate(0, 0); }
+  33% { opacity: 0.6; transform: scale(1.1) translate(-2%, 1%); }
+  66% { opacity: 0.4; transform: scale(0.95) translate(1%, -1%); }
+}
+
+.mesh-bg {
+  animation: meshShift 20s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
