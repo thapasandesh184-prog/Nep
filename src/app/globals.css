@@ -7,10 +7,9 @@
   --foreground: #F5F0E8;
   --gold: #C9A96E;
   --gold-dim: #8A6A30;
-  --grid-opacity: 0.015;
+  --grid-opacity: 0.012;
 }
 
-/* Obsidian background with fine crosshatch grid overlay */
 body {
   color: var(--foreground);
   background-color: var(--background);
@@ -31,135 +30,47 @@ body {
     );
   background-attachment: fixed;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Selection styling */
 ::selection {
-  background-color: rgba(201, 169, 110, 0.3);
+  background-color: rgba(201, 169, 110, 0.25);
   color: #F5F0E8;
 }
 
-/* Scrollbar styling */
-::-webkit-scrollbar {
-  width: 6px;
-}
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0C0A08; }
+::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 2px; }
 
-::-webkit-scrollbar-track {
-  background: #0C0A08;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #C9A96E;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #E8D5A3;
-}
-
-/* Focus states for accessibility */
 *:focus-visible {
   outline: 1px solid #C9A96E;
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: auto; }
 
-/* Lenis smooth scroll */
-html.lenis, html.lenis body {
-  height: auto;
-}
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-/* Luxury easing utility */
 @layer utilities {
   .ease-luxury {
     transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
   }
-
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Inner glow for interactive elements */
-  .inner-glow {
-    box-shadow: inset 0 0 20px rgba(201, 169, 110, 0.12);
-  }
-
-  .inner-glow-hover:hover {
-    box-shadow: inset 0 0 30px rgba(201, 169, 110, 0.2);
-  }
-
-  /* Gold top rule for cards */
-  .gold-top-rule {
-    border-top: 1px solid #C9A96E;
-  }
-
-  /* Ornamental divider */
-  .ornament-divider {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .ornament-divider::before,
-  .ornament-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      #C9A96E,
-      transparent
-    );
-  }
+  .text-balance { text-wrap: balance; }
+  .gold-top-rule { border-top: 1px solid #C9A96E; }
 }
 
-/* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-
-  .animate-marquee {
-    animation: none !important;
-  }
 }
 
-/* Touch device optimizations */
 @media (hover: none) {
-  .inner-glow-hover:hover {
-    box-shadow: none;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  :root {
-    --grid-opacity: 0.05;
-  }
+  .inner-glow-hover:hover { box-shadow: none; }
 }
