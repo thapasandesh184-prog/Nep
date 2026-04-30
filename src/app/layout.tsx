@@ -1,71 +1,41 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
-import SmoothScrollProvider from "@/components/smooth-scroll";
-import CustomCursor from "@/components/custom-cursor";
-import SchemaMarkup from "@/components/schema-markup";
 
-const cormorant = Cormorant_Garamond({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-cormorant",
+  variable: "--font-space",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
-const dmSans = DM_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-dm-sans",
+  variable: "--font-inter",
   weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nepovoxel.com"),
-  title: "Nepovoxel — Premium AI Creative Studio",
+  title: "Nepovoxel — Fly Through the AI Dimension",
   description:
-    "AI-generated visuals, ad creatives, and world-class development — crafted with the precision of a royal atelier for the modern digital era.",
+    "You do not scroll a website. You fly through a living AI dimension. Nepovoxel is an AI creative studio whose website IS an AI-generated universe.",
   keywords: [
     "AI creative studio",
     "AI product photography",
     "AI UGC video",
-    "AI ad creatives",
-    "Shopify brand creative",
-    "Next.js development",
-    "AI generated product images",
-    "e-commerce creative agency",
+    "3D web experience",
+    "award winning website",
+    "immersive web",
   ],
-  authors: [{ name: "Nepovoxel" }],
-  creator: "Nepovoxel",
-  publisher: "Nepovoxel",
   robots: "index, follow",
   openGraph: {
-    title: "Nepovoxel — Premium AI Creative Studio",
-    description:
-      "AI-generated visuals, ad creatives, and world-class development — crafted with the precision of a royal atelier.",
+    title: "Nepovoxel — Fly Through the AI Dimension",
+    description: "A navigable 3D dimension that generates itself around you.",
     type: "website",
     locale: "en_US",
     siteName: "Nepovoxel",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Nepovoxel — Premium AI Creative Studio",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Nepovoxel — Premium AI Creative Studio",
-    description:
-      "AI-generated visuals, ad creatives, and world-class development.",
-    images: ["/og-image.jpg"],
-  },
-  alternates: {
-    canonical: "https://nepovoxel.com",
-  },
-  verification: {
-    google: "YOUR_GOOGLE_VERIFICATION_CODE",
   },
 };
 
@@ -76,16 +46,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <SchemaMarkup />
-      </head>
       <body
-        className={`${cormorant.variable} ${dmSans.variable} antialiased bg-obsidian text-ivory font-sans`}
+        className={`${spaceGrotesk.variable} ${inter.variable} antialiased bg-[#08070A] text-[#F2EFF9] font-sans`}
       >
-        <SmoothScrollProvider>
-          <CustomCursor />
-          {children}
-        </SmoothScrollProvider>
+        {children}
       </body>
     </html>
   );
